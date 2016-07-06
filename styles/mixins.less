@@ -1,0 +1,23 @@
+.input-icon-style {
+	border-top-left-radius: @radius;
+	border-bottom-left-radius: @radius;
+}
+
+.datepicker-style {
+	width: 300px;
+	height: 295px;
+	bottom: 22px;
+	left: 1px;
+	border: 1px solid @colorContactSecond;
+	border-radius: @radius;
+
+	._720kb-datepicker-calendar-header {
+		background: @colorContactSecond;
+	}
+	._720kb-datepicker-calendar-days-header {
+		background: @colorContactMain;
+	}
+	._720kb-datepicker-calendar-day:hover {
+		background: lighten(@colorContactMain, 5%);
+	}
+}

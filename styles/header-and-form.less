@@ -1,0 +1,113 @@
+//Page header with search
+.page-header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 5px 0;
+	z-index: 3;
+	background: @colorForm;
+	box-shadow: 0 10px 7px -6px #777;
+	.wrapper {
+		width: 500px;
+		&:before {
+			content: '\f10a';
+			.input-icon-style;
+		}
+		&:after,
+		input {
+			width: 478px;
+		}
+	}
+}
+//Add new contact form
+.add-new {
+	position: fixed;
+	top: 50px;
+	left: -320px;
+	padding: 10px;
+	z-index: 3;
+	border-bottom-right-radius: @radius;
+	background: @colorForm;
+	transition: 1s;
+	box-shadow: 0 10px 7px -6px #777;
+	.submit-button {
+		display: block;
+		background: none;
+		border: 1px solid @colorContactSecond;
+		color: @colorContactSecond;
+		cursor: pointer;
+		border-radius: @radius;
+		font-size: 14px;
+		margin: 7px auto 0;
+		padding: 2px 10px;
+		transition: .5s;
+		&:hover {
+			background: @colorContactSecond;
+			color: @colorForm;
+		}
+		&:focus {
+			background: lighten(@colorContactMain, 5%);
+			color: @colorContactSecond;
+			outline: none;
+		}
+	}
+}
+.open-form {
+	width: 22px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	right: -22px;
+	border-top-right-radius: @radius;
+	border-bottom-right-radius: @radius;
+	background: @colorForm;
+	color: lighten(@colorContactMain, 10%);
+	cursor: pointer;
+	transition: .5s;
+	&:before {
+		font-family: 'Flaticon';
+		content: '\f100';
+		display: block;
+		position: absolute;
+		top: 17px;
+		left: 3px;
+		width: 16px;
+		height: 16px;
+		font-size: 16px;
+	}
+	&:hover {
+		// color: darken(@colorContactSecond, 15%);
+	}
+}
+
+.page-header,
+.add-new {
+	.wrapper{
+		&:before {
+			background: @colorContactSecond;
+			color: @colorForm;
+		}
+		&:after {
+			background: linear-gradient(to right, @colorContactSecond, transparent);
+		}
+		&:hover {
+			&:before {
+				background: darken(@colorContactSecond, 15%);
+			}
+			&:after {
+				background: linear-gradient(to right, darken(@colorContactSecond, 15%), transparent);
+			}
+		}
+		input {
+			background: linear-gradient(to right, lighten(@colorContactMain, 5%), transparent);
+			&:focus {
+				background: lighten(@colorContactMain, 5%);
+			}
+		}
+	}
+}
+
+.add-new.form-is-open{
+	left: 0;
+}

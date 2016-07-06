@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Phonebook App</title>
+	<link rel="stylesheet" href="node_modules/angularjs-datepicker/src/css/angular-datepicker.css">
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+<body ng-app="phonebookApp" ng-controller="mainCtrl">
+	<!-- Шапка с поиском -->
+	<header class="page-header">
+		<div class="search wrapper">
+			<input ng-model="search" type="text" placeholder="Search contact">
+		</div>
+	</header>
+	<!-- Форма добавления нового контакта -->
+	<aside ng-class="{'form-is-open' : isOpenForm}" class="add-new">
+		<form ng-model="form" ng-submit="newContact(obj)">
+			<div class="name wrapper">
+				<input ng-model="obj.firstName" type="text" placeholder="First name*" required>
+				<input ng-model="obj.lastName" type="text" placeholder="Last name">
+			</div>
+			<div class="organization wrapper">
+				<input ng-model="obj.organization" type="text" placeholder="Organization">
+			</div>
+			<div class="phone wrapper" ng-repeat="phone in obj.phones track by $index">
+				<input ng-model="obj.phones[$index]" type="text" placeholder="Phone*" required>
+			</div>
+
+			<div ng-click="obj.phones.push('')" class="add-more-phone">+</div>
+
+			<div class="address wrapper">
+				<input ng-model="obj.country" type="text" placeholder="Country">
+				<input ng-model="obj.city" type="text" placeholder="City">
+				<input ng-model="obj.street" type="text" placeholder="Street">
+			</div>
+			<div class="e-mail wrapper">
+				<input ng-model="obj.eMail" type="text" placeholder="E-mail">
+			</div>
+			<div class="web wrapper">
+				<input ng-model="obj.web" type="text" placeholder="Web">
+			</div>
+			<div class="skype wrapper">
+				<input ng-model="obj.skype" type="text" placeholder="Skype">
+			</div>
+			<div class="facebook wrapper">
+				<input ng-model="obj.facebook" type="text" placeholder="Facebook">
+			</div>
+			<div class="linkedin wrapper">
+				<input ng-model="obj.linkedin" type="text" placeholder="Linkedin">
+			</div>
+			<div class="twitter wrapper">
+				<input ng-model="obj.twitter" type="text" placeholder="Twitter">
+			</div>
+			<div class="instagram wrapper">
+				<input ng-model="obj.instagram" type="text" placeholder="Instagram">
+			</div>
+			<div class="birthday wrapper">
+				<datepicker date-format="d MMM yyyy" datepicker-class="datepicker-style">
+					<input ng-model="obj.birthday" type="text" placeholder="Birthday">
+				</datepicker>
+			</div>
+			<div class="photo wrapper">
+				<input ng-model="obj.photo" type="file" base-sixty-four-input>
+			</div>
+			<button type="submit" class="submit-button">Add new contact</button>
+		</form>
+		<div ng-click="isOpenForm = !isOpenForm" class="open-form"></div>
+	</aside>
+	<!-- Список контактов -->
+	<ul class="contact-list">
+		<li ng-repeat="contact in myContacts | filter : search track by $index" ng-controller="contactCtrl" ng-class="{'edit-mode' : isEditMode}" class="contact">
+			<!-- Новый контакт -->
+			<div ng-hide="isEditMode" class="compact-view">
+				<div class="contact-header">
+					<div ng-hide="!birthdayToday" class="birthday-today">Birthday today</div>
+					<img ng-src="{{getAvatar()}}" class="picture">
+					<div class="name">
+						<p>{{contact.lastName}}</p>
+						<p>{{contact.firstName}}</p>
+					</div>
+					<div class="organization">
+						{{contact.organization}}
+					</div>
+					<div class="control-panel">
+						<div ng-click="isShowDetails = !isShowDetails" ng-class="{'details-is-open' : isShowDetails}" class="more control-button"></div>
+						<div ng-click="isEditMode = !isEditMode" class="edit control-button"></div>
+						<div ng-click="remove($index)" class="remove control-button"></div>
+					</div>
+				</div>
+				<div ng-show="isShowDetails" class="details">
+					<div class="phone wrapper" ng-repeat="phone in contact.phones track by $index">
+						<p>{{contact.phones[$index]}}</p>
+					</div>
+					<div ng-show="contact.country || contact.city || contact.street" class="address wrapper">
+						<p ng-show="contact.country">{{contact.country}}</p>
+						<p ng-show="contact.city">{{contact.city}}</p>
+						<p ng-show="contact.street">{{contact.street}}</p>
+					</div>
+					<div ng-show="contact.eMail" class="e-mail wrapper">
+						<p>{{contact.eMail}}</p>
+					</div>
+					<div ng-show="contact.web" class="web wrapper">
+						<p>{{contact.web}}</p>
+					</div>
+					<div ng-show="contact.skype" class="skype wrapper">
+						<p>{{contact.skype}}</p>
+					</div>
+					<div ng-show="contact.facebook" class="facebook wrapper">
+						<p>{{contact.facebook}}</p>
+					</div>
+					<div ng-show="contact.linkedin" class="linkedin wrapper">
+						<p>{{contact.linkedin}}</p>
+					</div>
+					<div ng-show="contact.twitter" class="twitter wrapper">
+						<p>{{contact.twitter}}</p>
+					</div>
+					<div ng-show="contact.instagram" class="instagram wrapper">
+						<p>{{contact.instagram}}</p>
+					</div>
+					<div ng-show="contact.birthday" class="birthday wrapper">
+						<p>{{contact.birthday}}</p>
+					</div>
+				</div>
+			</div>
+			<!-- Редактирование контакта -->
+			<div ng-hide="!isEditMode" class="edit-view">
+				<div class="name wrapper">
+					<input ng-model="contact.firstName" type="text" placeholder="First name*" required>
+					<input ng-model="contact.lastName" type="text" placeholder="Last name">
+				</div>
+				<div class="organization wrapper">
+					<input ng-model="contact.organization" type="text" placeholder="Organization">
+				</div>
+				<div class="phone wrapper" ng-repeat="phone in contact.phones track by $index">
+					<input ng-model="contact.phones[$index]" type="text" placeholder="Phone*" required>
+				</div>
+				<!-- <div ng-click="obj.phones.push('')" class="btn">Phone</div> -->
+				<div class="address wrapper">
+					<input ng-model="contact.country" type="text" placeholder="Country">
+					<input ng-model="contact.city" type="text" placeholder="City">
+					<input ng-model="contact.street" type="text" placeholder="Street">
+				</div>
+				<div class="e-mail wrapper">
+					<input ng-model="contact.eMail" type="text" placeholder="E-mail">
+				</div>
+				<div class="web wrapper">
+					<input ng-model="contact.web" type="text" placeholder="Web">
+				</div>
+				<div class="skype wrapper">
+					<input ng-model="contact.skype" type="text" placeholder="Skype">
+				</div>
+				<div class="facebook wrapper">
+					<input ng-model="contact.facebook" type="text" placeholder="Facebook">
+				</div>
+				<div class="linkedin wrapper">
+					<input ng-model="contact.linkedin" type="text" placeholder="Linkedin">
+				</div>
+				<div class="twitter wrapper">
+					<input ng-model="contact.twitter" type="text" placeholder="Twitter">
+				</div>
+				<div class="instagram wrapper">
+					<input ng-model="contact.instagram" type="text" placeholder="Instagram">
+				</div>
+				<div class="birthday wrapper">
+					<datepicker date-format="d MMM yyyy" datepicker-class="datepicker-style">
+						<input ng-model="contact.birthday" type="text" placeholder="Birthday">
+					</datepicker>
+				</div>
+				<div class="photo wrapper">
+					<input ng-model="contact.photo" type="file" base-sixty-four-input>
+				</div>
+				<div class="control-panel">
+					<div ng-click="isEditMode = !isEditMode" class="save control-button"></div>
+				</div>
+			</div>
+		</li>
+	</ul>
+
+	<!-- Скрипты -->
+	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="node_modules/angular-base64-upload/src/angular-base64-upload.js"></script>
+	<script src="node_modules/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+	<script src="script/script.js"></script>
+</body>
+</html>

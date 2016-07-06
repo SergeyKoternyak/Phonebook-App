@@ -1,0 +1,28 @@
+.contact.edit-mode {
+	overflow: visible;
+	padding: 10px;
+	background: linear-gradient(to bottom, @colorContactMain, lighten(@colorContactMain, 5%));
+	.wrapper{
+		&:before {
+			background: @colorContactSecond;
+			color: @colorContactMain;
+		}
+		&:after {
+			background: linear-gradient(to right, @colorContactSecond, transparent);
+		}
+		&:hover {
+			&:before {
+				background: darken(@colorContactSecond, 15%);
+			}
+			&:after {
+				background: linear-gradient(to right, darken(@colorContactSecond, 15%), transparent);
+			}
+		}
+		input {
+			background: linear-gradient(to right, lighten(@colorContactMain, 20%), transparent);
+			&:focus {
+				background: lighten(@colorContactMain, 20%);
+			}
+		}
+	}
+}

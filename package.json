@@ -1,0 +1,22 @@
+{
+  "name": "PhonebookApp",
+  "version": "1.0.0",
+  "description": "Phonebook application. Usage Angular.js and ES2015",
+  "scripts": {
+    "build": "node ./node_modules/less/bin/lessc ./styles/style.less ./styles/style.css && node ./node_modules/postcss-cli/bin/postcss --use autoprefixer styles/*.css -d styles",
+    "start": "npm run build && node ./node_modules/opener/opener.js http://127.0.0.1:8080 && node ./node_modules/node-static/bin/cli.js"
+  },
+  "author": "Sergey Koternyak <sergeykoternyak@gmail.com>",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-base64-upload": "^0.1.19",
+    "angularjs-datepicker": "^2.1.6",
+    "node-static": "^0.7.7",
+    "opener": "^1.4.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "less": "^2.7.1",
+    "postcss-cli": "^2.5.2"
+  }
+}

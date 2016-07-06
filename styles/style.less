@@ -1,0 +1,141 @@
+@colorContactMain: rgba(250, 235, 167, 1);
+@colorContactSecond: rgba(112, 98, 61, 1);
+@colorForm: rgba(189, 195, 131, 1);
+@colorBirthday: rgba(255, 0, 0, 1);
+@radius: 5px;
+
+@import url('reset.css');
+
+@font-face {
+	font-family: 'Flaticon';
+	src: url('fonts/Flaticon.woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@import url('mixins.less');
+@import url('header-and-form.less');
+@import url('contact.less');
+@import url('edit-mode.less');
+
+body {
+	background: lighten(@colorContactMain, 10%);
+}
+
+input {
+	display: block;
+	border: none;
+	height: 22px;
+	padding: 0 5px;
+	margin-left: 22px;
+	font-size: 14px;
+	border-top-right-radius: @radius;
+	border-bottom-right-radius: @radius;
+	transition: 1s;
+	&:focus {
+		outline: none;
+	}
+}
+
+.wrapper {
+	position: relative;
+	margin: auto;
+	min-height: 22px;
+	&:before {
+		font-family: 'Flaticon';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 22px;
+		height: 22px;
+		line-height: 22px;
+		font-size: 14px;
+		text-align: center;
+		transition: .5s;
+	}
+	&:after {
+		content: '';
+		height: 1px;
+		position: absolute;
+		bottom: 0px;
+		left: 22px;
+	}
+}
+
+.phone:before {
+	content: '\f111';
+}
+.address:before {
+	content: '\f107';
+}
+.e-mail:before {
+	content: '\f10b';
+}
+.skype:before {
+	content: '\f10f';
+}
+.web:before {
+	content: '\f102';
+}
+.linkedin:before {
+	content: '\f109';
+}
+.facebook:before {
+	content: '\f104';
+}
+.twitter:before {
+	content: '\f112';
+}
+.instagram:before {
+	content: '\f108';
+}
+.birthday:before {
+	content: '\f105';
+}
+.photo:before {
+	content: '\f10e';
+}
+
+.add-new,
+.edit-mode {
+	.wrapper {
+		width: 300px;
+		margin-bottom: 3px;
+		&:before {
+			.input-icon-style;
+		}
+		&:after,
+		input {
+			width: 278px;
+		}
+	}
+	.name {
+		height: 44px;
+		&:before {
+			content: '\f10d';
+			height: 44px;
+			line-height: 44px;
+		}
+	}
+	.organization:before {
+		content: '\f101';
+	}
+	.address {
+		height: 66px;
+		&:before {
+			height: 66px;
+			line-height: 66px;
+		}
+	}
+	.add-more-phone {
+		position: absolute;
+		top: 82px;
+		right: 10px;
+		width: 22px;
+		height: 22px;
+		text-align: center;
+		line-height: 22px;
+		font-weight: bold;
+		cursor: pointer;
+	}
+}

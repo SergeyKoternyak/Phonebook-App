@@ -1,0 +1,154 @@
+//Contact box
+.contact-list {
+	padding: 45px 5px 5px;
+	font-size: 0;
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: flex-start;
+	align-items: flex-start;
+}
+
+// Contact card style
+.contact {
+	width: 322px;
+	min-width: 322px;
+	font-size: 14px;
+	border-radius: @radius*2;
+	border: 1px solid @colorContactSecond;
+	margin: 5px;
+	word-wrap: break-word;
+	overflow: hidden;
+	transition: box-shadow .3s;
+	&:hover {
+		box-shadow: 0px 0px 25px 0px darken(@colorForm, 15%);
+	}
+}
+.contact-header {
+	position: relative;
+	padding: 10px 10px 0;
+	background: linear-gradient(to bottom, @colorContactMain, lighten(@colorContactMain, 5%));
+	.birthday-today {
+		width: 65px;
+		padding-left: 17px;
+		position: absolute;
+		bottom: 10px;
+		right: 0;
+		transform: rotate(-20deg);
+		font-size: 12px;
+		font-weight: bold;
+		color: @colorBirthday;
+		user-select: none;
+		cursor: default;
+		&:before {
+			font-family: "Flaticon";
+			content: '\f105';
+			font-size: 14px;
+			font-weight: normal;
+			position: absolute;
+			left: 0;
+			line-height: 20px;
+			color: @colorBirthday;
+		}
+	}
+	.picture {
+		width: 75px;
+		height: 75px;
+		border: 1px solid @colorContactSecond;
+		border-radius: @radius*2;
+		float: left;
+	}
+	.name,
+	.organization {
+		margin-left: 85px;
+		width: 213px;
+	}
+	.name {
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.organization {
+		margin-top: 5px;
+		&:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+	}
+}
+.control-panel {
+	font-size: 0;
+	text-align: center;
+	border-top: 1px solid @colorContactSecond;
+	margin-top: 10px;
+	padding: 3px 0;
+	.more:before {
+		content: '\f103';
+	}
+	.edit:before {
+		content: '\f10c';
+	}
+	.save:before {
+		content: '\f110';
+	}
+	.remove:before {
+		content: '\f106';
+	}
+}
+.control-button {
+	display: inline-block;
+	font-size: 12px;
+	margin: 0 5px;
+	cursor: pointer;
+	width: 12px;
+	height: 12px;
+	&:before {
+		font-family: "Flaticon";
+		color: @colorContactSecond;
+		transition: color .5s;
+	}
+	&:hover:before {
+		color: @colorForm;
+	}
+}
+.details {
+	padding: 10px;
+	background: lighten(@colorContactMain, 5%);
+	.wrapper {
+		line-height: 22px;
+		padding-left: 27px;
+		&:before {
+			color: @colorContactSecond;
+		}
+		&:after{
+			width: 300px;
+			left: 0;
+		}
+		&:hover {
+			&:before {
+				color: @colorForm;
+			}
+			&:after {
+				background: linear-gradient(to right, @colorForm, transparent);
+			}
+		}
+	}
+	.address {
+		font-size: 0;
+		p {
+			display: inline-block;
+			font-size: 14px;
+			vertical-align: top;
+			&:not(:last-child){
+				margin-right: 5px;
+			}
+		}
+	}
+}
+
+// For open block 'details'
+.details-is-open:before {
+	display: block;
+	transform: rotate(180deg);
+}

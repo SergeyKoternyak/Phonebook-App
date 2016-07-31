@@ -3,6 +3,8 @@ import base64Upload from 'angular-base64-upload';
 import datepicker from 'angularjs-datepicker';
 import MainController from './mainController.js';
 import ContactController from './contactController.js';
+import '../styles/reset.css';
+import '../node_modules/angularjs-datepicker/src/css/angular-datepicker.css';
 import '../styles/style.less';
 
 

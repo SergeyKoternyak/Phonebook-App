@@ -5,19 +5,17 @@
 @radius: 5px;
 
 @import url('reset.css');
-
+@import url('mixins.less');
+@import url('header-and-form.less');
+@import url('contact.less');
+@import url('edit-mode.less');
+@import url('../node_modules/angularjs-datepicker/src/css/angular-datepicker.css');
 @font-face {
 	font-family: 'Flaticon';
 	src: url('fonts/Flaticon.woff');
 	font-weight: normal;
 	font-style: normal;
 }
-
-@import url('mixins.less');
-@import url('header-and-form.less');
-@import url('contact.less');
-@import url('edit-mode.less');
-
 body {
 	background: lighten(@colorContactMain, 10%);
 }

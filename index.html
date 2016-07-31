@@ -3,8 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Phonebook App</title>
-	<link rel="stylesheet" href="node_modules/angularjs-datepicker/src/css/angular-datepicker.css">
-	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body ng-app="phonebookApp" ng-controller="MainController">
 		<!-- Шапка с поиском -->
@@ -69,7 +68,7 @@
 	</aside>
 	<!-- Список контактов -->
 	<ul class="contact-list">
-		<li ng-repeat="contact in myContacts | filter : search track by $index" ng-controller="ContactController" ng-class="{'edit-mode' : isEditMode}" class="contact">
+		<li ng-cloak ng-repeat="contact in myContacts | filter : search track by $index" ng-controller="ContactController" ng-class="{'edit-mode' : isEditMode}" class="contact">
 			<!-- Новый контакт -->
 			<div ng-hide="isEditMode" class="compact-view">
 				<div class="contact-header">
@@ -178,9 +177,6 @@
 	</ul>
 
 	<!-- Скрипты -->
-	<script src="node_modules/angular/angular.min.js"></script>
-	<script src="node_modules/angular-base64-upload/src/angular-base64-upload.js"></script>
-	<script src="node_modules/angularjs-datepicker/src/js/angular-datepicker.js"></script>
 	<script src="script.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@ module.exports = {
 	},
 
 	output: {
-		filename: "script.js"
+		filename: "dist/script.js"
 	},
 
 	module: {
@@ -27,7 +27,7 @@ module.exports = {
 			},
 			{
 				test: /\.(png|jpg|woff)$/,
-				loader: 'file?name=[path][name].[ext]'
+				loader: 'file?name=/[path][name].[ext]'
 			},
 			{
 				test: /\.css$/,
@@ -43,6 +43,6 @@ module.exports = {
 		return [autoprefixer];
 	},
 	plugins: [
-		new ExtractTextPlugin('style.css')
+		new ExtractTextPlugin('dist/style.css')
 	]
 };

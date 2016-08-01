@@ -5,7 +5,7 @@ import MainController from './mainController.js';
 import ContactController from './contactController.js';
 import '../styles/reset.css';
 import '../node_modules/angularjs-datepicker/src/css/angular-datepicker.css';
-import '../styles/style.less';
+import '../styles/main.less';
 
 
 angular.module('phonebookApp', ['naif.base64','720kb.datepicker'])

@@ -1,0 +1,720 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}datepicker a, [datepicker] a, .datepicker a{
+  color:inherit;
+  text-decoration:none;
+}
+datepicker a:hover, [datepicker] a:hover, .datepicker a:hover{
+  text-decoration:none;
+}
+datepicker select, datepicker select:focus, datepicker select:hover,
+.datepicker select, .datepicker select:focus, .datepicker select:hover,
+[datepicker] select, [datepicker] select:focus, [datepicker] select:hover{
+  width:100%;
+   overflow: hidden;
+   background:none;
+   color:#fff;
+   background-color: #138EFA;
+   border-radius:2px;
+   border: 0;
+   margin-top:5px;
+}
+datepicker, .datepicker, [datepicker],
+._720kb-datepicker-calendar-header,
+._720kb-datepicker-calendar-body,
+._720kb-datepicker-calendar-days-header,
+._720kb-datepicker-calendar-years-pagination-pages {
+  font-family: Helvetica Neue, Arial, sans-serif;
+  font-size: 13.5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  float: left;
+  clear: right;
+  position: relative;
+}
+._720kb-datepicker-calendar {
+  background: white;
+  color: #333;
+  position: absolute;
+  z-index: 999;
+  min-width: 220px;
+  margin: 0 auto;
+  width: 101%;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  visibility: hidden;
+  overflow:hidden;
+  margin-left:-0.5%;
+  padding: 0 0 2% 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+._720kb-datepicker-calendar._720kb-datepicker-open,._720kb-datepicker-calendar._720kb-datepicker-forced-to-open {
+  visibility: visible;
+}
+._720kb-datepicker-calendar-header {
+  text-align: center;
+  font-size: 15px;
+  line-height: 40px;
+}
+._720kb-datepicker-calendar-header:nth-child(odd) {
+  background: #138EFA;
+}
+._720kb-datepicker-calendar-header:nth-child(even) {
+  background: #7BC6FC;
+}
+._720kb-datepicker-calendar-header-left,
+._720kb-datepicker-calendar-header-middle,
+._720kb-datepicker-calendar-header-right {
+  width: 15%;
+  float: left;
+}
+._720kb-datepicker-calendar-header-middle {
+  width: 70%;
+}
+
+._720kb-datepicker-calendar-header-closed-pagination::after {
+  content: " \25BE";
+}
+
+._720kb-datepicker-calendar-header-opened-pagination::after {
+  content: " \25BE";
+  margin-left: 4px;
+  position: relative;
+  bottom: -3px;
+  display:inline-block;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+._720kb-datepicker-calendar-body {
+  width: 96%;
+  margin: 2%;
+  text-align: center;
+}
+._720kb-datepicker-calendar-day {
+  cursor: pointer;
+  font-size: 12.5px;
+  width: 12.2%;
+  margin:5px 1%;
+  padding: 1.5% 0;
+  float: left;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+}
+._720kb-datepicker-calendar-day:hover,._720kb-datepicker-calendar-day._720kb-datepicker-active {
+  background: rgba(0, 0, 0, 0.03);
+}
+._720kb-datepicker-calendar-header a, ._720kb-datepicker-calendar-header a:hover {
+  text-decoration:none;
+  padding:3% 9% 4% 9%;
+  font-size: 13.5px;
+  color:rgba(0, 0, 0, 0.55);
+  font-weight: bold;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+._720kb-datepicker-calendar-header a:hover {
+  color:rgba(0, 0, 0, 0.9);
+  background: rgba(255, 255, 255, 0.45);
+}
+._720kb-datepicker-calendar-month {
+  color:#fff;
+}
+._720kb-datepicker-calendar-month span {
+  font-size: 13px;
+  color:rgba(0, 0, 0, 0.4);
+}
+._720kb-datepicker-calendar-month a span  i {
+  font-style: normal;
+  font-size:15px;
+}
+._720kb-datepicker-calendar-month a, ._720kb-datepicker-calendar-month a:hover {
+  padding: 3px;
+  margin-left:1%;
+}
+._720kb-datepicker-calendar-years-pagination{
+  padding:2% 0 0 0;
+  float:left;
+  clear: right;
+  width: 100%;
+}
+._720kb-datepicker-calendar-years-pagination a, ._720kb-datepicker-calendar-years-pagination a:hover {
+  font-size:12px;
+  padding:0 7px;
+  font-weight: normal;
+  margin:3px 1% 0 1%;
+  line-height: 20px;
+  display: inline-block;
+}
+._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active {
+  color:rgba(0, 0, 0, 0.9);
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.45);
+}
+._720kb-datepicker-calendar-years-pagination-pages a,._720kb-datepicker-calendar-years-pagination-pages a:hover{
+  padding:5px 10px;
+}
+._720kb-datepicker-calendar-days-header{
+  max-width: 100%;
+  margin:0 auto;
+  padding:0 2% 0 2%;
+  background: rgba(19, 142, 250, 0.08);
+  border-bottom:1px solid rgba(0,0,0,0.02);
+}
+._720kb-datepicker-calendar-days-header div{
+  width: 14.18%;
+  font-weight: 500;
+  font-size: 11.5px;
+  padding:10px 0;
+  float:left;
+  text-align: center;
+  color:rgba(0,0,0,0.7);
+}
+._720kb-datepicker-calendar-days
+._720kb-datepicker-default-button{
+  font-size: 18.5px;
+  position: relative;
+  bottom:-0.5px;
+}
+._720kb-datepicker-default-button{
+  padding:0 4.5px;
+}
+._720kb-datepicker-calendar-header-middle._720kb-datepicker-mobile-item{
+  width:95%;
+  float:none;
+  margin:0 auto;
+}
+._720kb-datepicker-item-hidden{
+  visibility:hidden;
+}
+._720kb-datepicker-calendar-day._720kb-datepicker-disabled,
+._720kb-datepicker-calendar-day._720kb-datepicker-disabled:hover,
+._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled,
+._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled:hover,
+._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled,
+._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled:hover{
+  color:rgba(0,0,0,0.2);
+  background: rgba(25,2,0,0.02);
+  cursor: default;
+}
+@font-face {
+  font-family: 'Flaticon';
+  src: url(/styles/fonts/Flaticon.woff);
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background: #fdf6d7;
+}
+input {
+  display: block;
+  border: none;
+  height: 22px;
+  padding: 0 5px;
+  margin-left: 22px;
+  font-size: 14px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+input:focus {
+  outline: none;
+}
+.wrapper {
+  position: relative;
+  margin: auto;
+  min-height: 22px;
+}
+.wrapper:before {
+  font-family: 'Flaticon';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  font-size: 14px;
+  text-align: center;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+.wrapper:after {
+  content: '';
+  height: 1px;
+  position: absolute;
+  bottom: 0px;
+  left: 22px;
+}
+.phone:before {
+  content: '\F111';
+}
+.address:before {
+  content: '\F107';
+}
+.e-mail:before {
+  content: '\F10B';
+}
+.skype:before {
+  content: '\F10F';
+}
+.web:before {
+  content: '\F102';
+}
+.linkedin:before {
+  content: '\F109';
+}
+.facebook:before {
+  content: '\F104';
+}
+.twitter:before {
+  content: '\F112';
+}
+.instagram:before {
+  content: '\F108';
+}
+.birthday:before {
+  content: '\F105';
+}
+.photo:before {
+  content: '\F10E';
+}
+.add-new .wrapper,
+.edit-mode .wrapper {
+  width: 300px;
+  margin-bottom: 3px;
+}
+.add-new .wrapper:before,
+.edit-mode .wrapper:before {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.add-new .wrapper:after,
+.edit-mode .wrapper:after,
+.add-new .wrapper input,
+.edit-mode .wrapper input {
+  width: 278px;
+}
+.add-new .name,
+.edit-mode .name {
+  height: 44px;
+}
+.add-new .name:before,
+.edit-mode .name:before {
+  content: '\F10D';
+  height: 44px;
+  line-height: 44px;
+}
+.add-new .organization:before,
+.edit-mode .organization:before {
+  content: '\F101';
+}
+.add-new .address,
+.edit-mode .address {
+  height: 66px;
+}
+.add-new .address:before,
+.edit-mode .address:before {
+  height: 66px;
+  line-height: 66px;
+}
+.add-new .add-more-phone,
+.edit-mode .add-more-phone {
+  position: absolute;
+  top: 82px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.input-icon-style {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+[ng-cloak],
+.ng-cloak {
+  display: none;
+}
+.datepicker-style {
+  width: 300px;
+  height: 295px;
+  bottom: 22px;
+  left: 1px;
+  border: 1px solid #70623d;
+  border-radius: 5px;
+}
+.datepicker-style ._720kb-datepicker-calendar-header {
+  background: #70623d;
+}
+.datepicker-style ._720kb-datepicker-calendar-days-header {
+  background: #faeba7;
+}
+.datepicker-style ._720kb-datepicker-calendar-day:hover {
+  background: #fbf0bf;
+}
+.page-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 5px 0;
+  z-index: 3;
+  background: #bdc383;
+  box-shadow: 0 10px 7px -6px #777;
+}
+.page-header .wrapper {
+  width: 500px;
+}
+.page-header .wrapper:before {
+  content: '\F10A';
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.page-header .wrapper:after,
+.page-header .wrapper input {
+  width: 478px;
+}
+.add-new {
+  position: fixed;
+  top: 50px;
+  left: -320px;
+  padding: 10px;
+  z-index: 3;
+  border-bottom-right-radius: 5px;
+  background: #bdc383;
+  -webkit-transition: 1s;
+  transition: 1s;
+  box-shadow: 0 10px 7px -6px #777;
+}
+.add-new .submit-button {
+  display: block;
+  background: none;
+  border: 1px solid #70623d;
+  color: #70623d;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  margin: 7px auto 0;
+  padding: 2px 10px;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+.add-new .submit-button:hover {
+  background: #70623d;
+  color: #bdc383;
+}
+.add-new .submit-button:focus {
+  background: #fbf0bf;
+  color: #70623d;
+  outline: none;
+}
+.open-form {
+  width: 22px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: -22px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #bdc383;
+  color: #fdf6d7;
+  cursor: pointer;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+.open-form:before {
+  font-family: 'Flaticon';
+  content: '\F100';
+  display: block;
+  position: absolute;
+  top: 17px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+.page-header .wrapper:before,
+.add-new .wrapper:before {
+  background: #70623d;
+  color: #bdc383;
+}
+.page-header .wrapper:after,
+.add-new .wrapper:after {
+  background: -webkit-linear-gradient(left, #70623d, transparent);
+  background: linear-gradient(to right, #70623d, transparent);
+}
+.page-header .wrapper:hover:before,
+.add-new .wrapper:hover:before {
+  background: #3e3722;
+}
+.page-header .wrapper:hover:after,
+.add-new .wrapper:hover:after {
+  background: -webkit-linear-gradient(left, #3e3722, transparent);
+  background: linear-gradient(to right, #3e3722, transparent);
+}
+.page-header .wrapper input,
+.add-new .wrapper input {
+  background: -webkit-linear-gradient(left, #fbf0bf, transparent);
+  background: linear-gradient(to right, #fbf0bf, transparent);
+}
+.page-header .wrapper input:focus,
+.add-new .wrapper input:focus {
+  background: #fbf0bf;
+}
+.add-new.form-is-open {
+  left: 0;
+}
+.contact-list {
+  padding: 45px 5px 5px;
+  font-size: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.contact {
+  width: 322px;
+  min-width: 322px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #70623d;
+  margin: 5px;
+  word-wrap: break-word;
+  overflow: hidden;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+.contact:hover {
+  box-shadow: 0px 0px 25px 0px #a0a851;
+}
+.contact-header {
+  position: relative;
+  padding: 10px 10px 0;
+  background: -webkit-linear-gradient(top, #faeba7, #fbf0bf);
+  background: linear-gradient(to bottom, #faeba7, #fbf0bf);
+}
+.contact-header .birthday-today {
+  width: 65px;
+  padding-left: 17px;
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+  font-size: 12px;
+  font-weight: bold;
+  color: #ff0000;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+}
+.contact-header .birthday-today:before {
+  font-family: "Flaticon";
+  content: '\F105';
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  left: 0;
+  line-height: 20px;
+  color: #ff0000;
+}
+.contact-header .picture {
+  width: 75px;
+  height: 75px;
+  border: 1px solid #70623d;
+  border-radius: 10px;
+  float: left;
+}
+.contact-header .name,
+.contact-header .organization {
+  margin-left: 85px;
+  width: 213px;
+}
+.contact-header .name {
+  font-size: 20px;
+  font-weight: bold;
+}
+.contact-header .organization {
+  margin-top: 5px;
+}
+.contact-header .organization:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.control-panel {
+  font-size: 0;
+  text-align: center;
+  border-top: 1px solid #70623d;
+  margin-top: 10px;
+  padding: 3px 0;
+}
+.control-panel .more:before {
+  content: '\F103';
+}
+.control-panel .edit:before {
+  content: '\F10C';
+}
+.control-panel .save:before {
+  content: '\F110';
+}
+.control-panel .remove:before {
+  content: '\F106';
+}
+.control-button {
+  display: inline-block;
+  font-size: 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+}
+.control-button:before {
+  font-family: "Flaticon";
+  color: #70623d;
+  -webkit-transition: color .5s;
+  transition: color .5s;
+}
+.control-button:hover:before {
+  color: #bdc383;
+}
+.details {
+  padding: 10px;
+  background: #fbf0bf;
+}
+.details .wrapper {
+  line-height: 22px;
+  padding-left: 27px;
+}
+.details .wrapper:before {
+  color: #70623d;
+}
+.details .wrapper:after {
+  width: 300px;
+  left: 0;
+}
+.details .wrapper:hover:before {
+  color: #bdc383;
+}
+.details .wrapper:hover:after {
+  background: -webkit-linear-gradient(left, #bdc383, transparent);
+  background: linear-gradient(to right, #bdc383, transparent);
+}
+.details .address {
+  font-size: 0;
+}
+.details .address p {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: top;
+}
+.details .address p:not(:last-child) {
+  margin-right: 5px;
+}
+.details-is-open:before {
+  display: block;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.contact.edit-mode {
+  overflow: visible;
+  padding: 10px;
+  background: -webkit-linear-gradient(top, #faeba7, #fbf0bf);
+  background: linear-gradient(to bottom, #faeba7, #fbf0bf);
+}
+.contact.edit-mode .wrapper:before {
+  background: #70623d;
+  color: #faeba7;
+}
+.contact.edit-mode .wrapper:after {
+  background: -webkit-linear-gradient(left, #70623d, transparent);
+  background: linear-gradient(to right, #70623d, transparent);
+}
+.contact.edit-mode .wrapper:hover:before {
+  background: #3e3722;
+}
+.contact.edit-mode .wrapper:hover:after {
+  background: -webkit-linear-gradient(left, #3e3722, transparent);
+  background: linear-gradient(to right, #3e3722, transparent);
+}
+.contact.edit-mode .wrapper input {
+  background: -webkit-linear-gradient(left, #ffffff, transparent);
+  background: linear-gradient(to right, #ffffff, transparent);
+}
+.contact.edit-mode .wrapper input:focus {
+  background: #ffffff;
+}

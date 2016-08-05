@@ -255,7 +255,7 @@ datepicker, .datepicker, [datepicker],
 }
 @font-face {
   font-family: 'Flaticon';
-  src: url(../styles/fonts/Flaticon.woff);
+  src: url(../dist/fonts/Flaticon.woff);
   font-weight: normal;
   font-style: normal;
 }

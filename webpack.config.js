@@ -11,7 +11,8 @@ module.exports = {
 	},
 
 	output: {
-		filename: "dist/script.js"
+		filename: "dist/script.js",
+		publicPath: "../"
 	},
 
 	module: {
@@ -26,7 +27,7 @@ module.exports = {
 			},
 			{
 				test: /\.(png|jpg|woff)$/,
-				loader: 'file?name=/[path][name].[ext]'
+				loader: 'file?name=dist/fonts/[name].[ext]'
 			},
 			{
 				test: /\.css$/,

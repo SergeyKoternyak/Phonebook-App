@@ -1,6 +1,8 @@
 # Phonebook-App
 Phonebook application. Usage Angular.js and ES2015
 
+GHPage - https://sergeykoternyak.github.io/Phonebook-App/
+
 Установка:
 
 - npm install - установка зависимостей
